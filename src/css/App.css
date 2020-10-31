@@ -1,0 +1,15 @@
+body {
+    margin: 0;
+    font-family: "Niramit", sans-serif;
+}
+
+.not-found-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    min-height: 70vh;
+    align-items: center;
+    height: 100%;
+    font-size: 18px;
+    text-align: center;
+}
