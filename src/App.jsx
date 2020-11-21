@@ -1,14 +1,11 @@
 import "babel-polyfill";
 import React from "react";
 import { render } from "react-dom";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
-import { Provider } from "react-redux";
-import { createStore, applyMiddleware } from "redux";
-import thunk from "redux-thunk";
+import { BrowserRouter, Route } from "react-router-dom";
+import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 
 // Views
 import LandingPage from "./views/LandingPage";
-import NotFoundPage from "./views/NotFoundPage";
 
 // Components
 import ScrollToTop from "./ScrollToTop";
@@ -16,19 +13,16 @@ import ScrollToTop from "./ScrollToTop";
 // CSS
 import "./css/App.css";
 
-// Reducer
-import rootReducer from "./store/reducers/rootReducer";
-
-const store = createStore(rootReducer, applyMiddleware(thunk));
+const client = new ApolloClient({
+  uri: "https://pangaea-interviews.now.sh/api/graphql",
+  cache: new InMemoryCache()
+});
 
 const App = () => {
   return (
     <BrowserRouter>
       <ScrollToTop>
-        <Switch>
-          <Route exact path="/" component={LandingPage} />
-          <Route path="*" component={NotFoundPage} />
-        </Switch>
+        <Route path="/" component={LandingPage} />
       </ScrollToTop>
     </BrowserRouter>
   );
@@ -37,8 +31,8 @@ const App = () => {
 const appDiv = document.getElementById("app");
 
 render(
-  <Provider store={store}>
+  <ApolloProvider client={client}>
     <App />
-  </Provider>,
+  </ApolloProvider>,
   appDiv
 );

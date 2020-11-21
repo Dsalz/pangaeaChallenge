@@ -1,4 +1,4 @@
-# Damola App Name
+# Pangaea Interview Challenge
 
 
 ## Table of Contents
@@ -8,7 +8,7 @@
 
 ## About
 
-- Damola App Name website
+- Pangaea Interview Challenge
 
 ## Setup
 

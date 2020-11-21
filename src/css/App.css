@@ -3,13 +3,19 @@ body {
     font-family: "Niramit", sans-serif;
 }
 
-.not-found-wrapper {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    min-height: 70vh;
-    align-items: center;
-    height: 100%;
-    font-size: 18px;
-    text-align: center;
+button {
+    background: none;
+    border: none;
+    outline: none;
+}
+
+.black-btn {
+    background: rgb(75, 85, 72);
+    color: #fff;
+    height: 52px;
+    cursor: pointer;
+}
+
+.black-btn:hover {
+    background: rgb(43, 46, 43);
 }

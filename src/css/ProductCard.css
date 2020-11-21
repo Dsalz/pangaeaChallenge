@@ -1,0 +1,37 @@
+.product-card {
+    padding: 3rem 2rem;
+    text-align: center;
+    width: calc(100% / 3);
+    box-sizing: border-box;
+}
+
+.product-card img {
+    margin-bottom: 20px;
+    max-height: 170px;
+    max-width: 100%;
+}
+
+.product-card h5,
+.product-card p {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin: 0.5rem auto;
+    font-weight: 400;
+}
+
+.product-card button {
+    width: 190px;
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 768px) {
+    .product-card {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .product-card {
+        width: 100%;
+    }
+}
