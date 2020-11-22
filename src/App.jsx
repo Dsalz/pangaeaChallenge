@@ -7,9 +7,6 @@ import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 // Views
 import LandingPage from "./views/LandingPage";
 
-// Components
-import ScrollToTop from "./ScrollToTop";
-
 // CSS
 import "./css/App.css";
 
@@ -21,9 +18,7 @@ const client = new ApolloClient({
 const App = () => {
   return (
     <BrowserRouter>
-      <ScrollToTop>
-        <Route path="/" component={LandingPage} />
-      </ScrollToTop>
+      <Route path="/" component={LandingPage} />
     </BrowserRouter>
   );
 };

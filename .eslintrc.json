@@ -51,7 +51,7 @@
           "requireReturn": true,
           "requireReturnType": true,
           "requireParamDescription": false,
-          "requireReturnDescription": true
+          "requireReturnDescription": false
         }
       ],
       "require-jsdoc": [

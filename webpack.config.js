@@ -4,8 +4,7 @@ const MiniCSSExtractPlugin = require("mini-css-extract-plugin");
 
 const htmlPlugin = new HtmlWebpackPlugin({
   template: "./src/index.html",
-  filename: "index.html",
-//   favicon: "./src/favicon.ico"
+  filename: "index.html"
 });
 
 const cssPlugin = new MiniCSSExtractPlugin({
