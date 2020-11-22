@@ -1,5 +1,3 @@
-/* eslint-disable valid-jsdoc */
-/* eslint-disable react/no-array-index-key */
 import React, { Fragment, useState, useEffect } from "react";
 import { useQuery } from "@apollo/client";
 
@@ -15,6 +13,12 @@ import "../css/LandingPage.css";
 // Queries
 import { getCurrenciesQuery, getProductsQuery } from "../queries";
 
+/**
+ * @description Formats amount values
+ * @param {number} amount Value to be formatted
+ * @param {string} currency Code for currency to display
+ * @returns {string} Formatted amount
+ */
 const formatAmount = (amount, currency) => {
   return amount.toLocaleString("en", {
     style: "currency",
@@ -47,6 +51,11 @@ const LandingPage = () => {
     }
   }, [currencyData]);
 
+  /**
+   * @description Updates product prices in cart
+   * @param {Array} updatedProducts products with updated prices
+   * @returns {Array} updated cart
+   */
   const getUpdatedCart = updatedProducts => {
     const { cart } = state;
 
@@ -71,6 +80,10 @@ const LandingPage = () => {
     }
   }, [productsData]);
 
+  /**
+   * @description show/hide cart sidebar
+   * @returns {undefined}
+   */
   const toggleCartDisplay = () => {
     const { showCart } = state;
 
@@ -87,6 +100,11 @@ const LandingPage = () => {
     });
   };
 
+  /**
+   * @description Adds item to cart
+   * @param {string} id id of product to be added to cart
+   * @returns {undefined}
+   */
   const addToCart = id => {
     const { cart, products } = state;
 
@@ -114,6 +132,12 @@ const LandingPage = () => {
     }
   };
 
+  /**
+   * @description Changes cart quantity
+   * @param {string} id id of product to update
+   * @param {number} quantity new quantity of cart item
+   * @returns {undefined}
+   */
   const changeQuantity = (id, quantity) => {
     const { cart } = state;
 
@@ -131,6 +155,10 @@ const LandingPage = () => {
     }
   };
 
+  /**
+   * @description Returns total amount of items in cart
+   * @returns {number} Total amount
+   */
   const getTotal = () => {
     const { cart } = state;
 
@@ -140,11 +168,16 @@ const LandingPage = () => {
     );
   };
 
+  /**
+   * @description Returns total number of items in cart
+   * @returns {number} Total items in cart
+   */
   const getCartNumber = () => {
     const { cart } = state;
 
     return cart.reduce((acc, currVal) => acc + currVal.quantity, 0);
   };
+
   const { products, showCart, activeCurrency, currencyOptions, cart } = state;
 
   return (
@@ -161,9 +194,9 @@ const LandingPage = () => {
         <section className="landing-page-products">
           {!productsLoading && (
             <div>
-              {products.map((product, i) => (
+              {products.map(product => (
                 <ProductCard
-                  key={i}
+                  key={product.id}
                   {...product}
                   image={product.image_url}
                   priceText={`From ${formatAmount(
@@ -182,17 +215,19 @@ const LandingPage = () => {
           )}
         </section>
 
-        <div className={`landing-page-cart ${showCart ? "open" : ""}`}>
+        <div
+          className={`landing-page-cart pos-fixed ${showCart ? "open" : ""}`}
+        >
           <div
-            className="landing-page-cart-bg"
+            className="landing-page-cart-bg pos-fixed"
             onClick={toggleCartDisplay}
             role="presentation"
           />
-          <div className="landing-page-cart-sidebar">
+          <div className="landing-page-cart-sidebar pos-abs">
             <h2>YOUR CART</h2>
 
             <button
-              className="cart-close-btn"
+              className="cart-close-btn pos-abs"
               type="button"
               onClick={toggleCartDisplay}
             >

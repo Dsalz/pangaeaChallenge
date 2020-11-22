@@ -10,7 +10,7 @@ import cartImg from "../images/cart.png";
 
 const Navbar = ({ cartNo, openCart }) => {
   return (
-    <nav className="index-navbar">
+    <nav className="index-navbar pos-fixed">
       <div className="index-navbar-logo">
         <NavLink to="/" className="index-navbar-logo-link">
           <img
@@ -22,9 +22,9 @@ const Navbar = ({ cartNo, openCart }) => {
       </div>
       <div className="index-navbar-links">
         <Link to="/account">Account</Link>
-        <a className="cart-link" onClick={openCart} role="presentation">
-          <img className="cart-img" src={cartImg} alt="cart" />
-          <span className="cart-no">{cartNo}</span>
+        <a className="cart-link pos-rel" onClick={openCart} role="presentation">
+          <img className="cart-img pos-rel" src={cartImg} alt="cart" />
+          <span className="cart-no pos-abs">{cartNo}</span>
         </a>
       </div>
     </nav>

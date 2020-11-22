@@ -44,7 +44,6 @@
 }
 
 .landing-page-cart {
-    position: fixed;
     width: 100vw;
     height: 100vh;
     z-index: 400;
@@ -63,13 +62,11 @@
     z-index: 3;
     width: 100%;
     height: 100%;
-    position: fixed;
 }
 
 .landing-page-cart-sidebar {
     background-color: #f2f2ef;
     z-index: 4;
-    position: absolute;
     padding: 0 20px 20px;
     width: 550px;
     max-width: 100vw;
@@ -89,7 +86,6 @@
 }
 
 .cart-close-btn {
-    position: absolute;
     top: 20px;
     left: 20px;
     cursor: pointer;

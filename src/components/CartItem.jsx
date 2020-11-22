@@ -5,10 +5,10 @@ import { string, func, number } from "prop-types";
 import "../css/CartItem.css";
 
 const CartItem = ({ image, title, priceText, quantity, changeQuantity }) => (
-  <article className="cart-item">
+  <article className="cart-item pos-rel">
     <button
       type="button"
-      className="close-btn"
+      className="close-btn pos-abs"
       onClick={() => changeQuantity(0)}
     >
       X
@@ -23,7 +23,11 @@ const CartItem = ({ image, title, priceText, quantity, changeQuantity }) => (
           -
         </button>
         <span>{quantity}</span>
-        <button type="button" onClick={() => changeQuantity(quantity + 1)}>
+        <button
+          className="pos-rel"
+          type="button"
+          onClick={() => changeQuantity(quantity + 1)}
+        >
           +
         </button>
       </div>
